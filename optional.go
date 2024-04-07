@@ -41,3 +41,10 @@ func (o *Optional[Valuetype]) Else(fun func() error) (err error) {
 	}
 	return
 }
+
+func (o *Optional[Valuetype]) OrElse(orElse Valuetype) Valuetype {
+	if o.Present() {
+		return o.Get()
+	}
+	return orElse
+}
