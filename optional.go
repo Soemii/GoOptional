@@ -27,3 +27,17 @@ func (o *Optional[Valuetype]) Present() bool {
 func (o *Optional[Valuetype]) Get() Valuetype {
 	return *o.value
 }
+
+func (o *Optional[Valuetype]) If(fun func(Valuetype) error) (err error) {
+	if o.Present() {
+		err = fun(o.Get())
+	}
+	return
+}
+
+func (o *Optional[Valuetype]) Else(fun func() error) (err error) {
+	if o.Present() {
+		err = fun()
+	}
+	return
+}
