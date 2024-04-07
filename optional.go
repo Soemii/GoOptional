@@ -1,4 +1,4 @@
-package GoOptional
+package goptional
 
 func NewEmptyOptional[ValueType any]() Optional[ValueType] {
 	return Optional[ValueType]{}

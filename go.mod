@@ -1,3 +1,3 @@
-module github.com/Soemii/GoOptional
+module github.com/Soemii/goptional
 
 go 1.18
